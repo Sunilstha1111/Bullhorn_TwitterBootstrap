@@ -17,6 +17,11 @@ public class HomeController {
     @Autowired
     private MessageRepository messageRepository;
 
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
     @RequestMapping ("/")
     public String listmessages (Model model){
         model.addAttribute("messages", messageRepository.findAll());
