@@ -2,16 +2,32 @@
 <html lang="en" xmlns:th = "www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <style>
+        body { padding-bottom: 70px; }
+        body {
+            background: url("http://www.allwhitebackground.com/images/2/2283.jpg");
+        }
+
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <title>Show</title>
 </head>
 <body>
-<a href = "/"> Show All Messages</a>
+<div class = "container">
+    <div class = "jumbtron">
+        <a class = "btn btn-primary btn-lg" href = "/list"> Show All Messages</a><br/>
+        <br/>
 
 Message: <span th:text = "${message.message}"></span><br/>
 Sender:  <span th:text = "${message.sender}"></span><br/>
 Posted Date : <span th:text = "${message.postedDate}"></span><br/>
+    <br/>
 
-<a th:href = "@{/delete/{id} (id = ${message.id})}">Delete this message</a>
+<a class = "btn btn-primary btn-lg" th:href = "@{/delete/{id} (id = ${message.id})}">Delete this message</a>
+    </div>
+</div>
 </body>
 </html>
 

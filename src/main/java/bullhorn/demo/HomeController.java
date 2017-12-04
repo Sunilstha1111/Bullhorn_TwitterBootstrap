@@ -4,25 +4,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class HomeController {
 
+
     @Autowired
     private MessageRepository messageRepository;
+
+    @RequestMapping("/")
+    public String home(){
+        return "base";
+    }
 
     @RequestMapping("/login")
     public String login(){
         return "login";
     }
 
-    @RequestMapping ("/")
+    @RequestMapping ("/list")
     public String listmessages (Model model){
         model.addAttribute("messages", messageRepository.findAll());
         return "list";
@@ -41,7 +47,7 @@ public class HomeController {
             return "messageForm";
         }
         messageRepository.save(message);
-        return "redirect:/";
+        return "redirect:/list";
     }
 
     @RequestMapping("/detail/{id}")
@@ -59,7 +65,7 @@ public class HomeController {
     @RequestMapping ("/delete/{id}")
     public String deleteMessage (@PathVariable ("id") long id){
         messageRepository.delete(id);
-        return "redirect:/";
+        return "redirect:/list";
 
     }
 }

@@ -3,8 +3,50 @@
       xmlns:th = "http://www.thymeleaf.org"
       xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <style>
+        body { padding-bottom: 70px; }
+        body {
+            background: url("https://i0.wp.com/www.dzzyn.com/wp-content/uploads/2016/02/20-FREE-BEAUTIFUL-HI-RES-WOOD-TEXTURE-WALLPAPER-BACKGROUNDS-12-Curved-Wood.jpg?fit=1200%2C873");
+        }
+        .form-header {
+            height: 60px;
+            padding: 20px 30px 0;
+            border-bottom: 1px solid #e1e8ee;
+        }
+        .form-body {
+            height: 340px;
+            padding: 25px 25px 20px;
+        }
+        .structure {
+            width: 360px;
+            height: 400px;
+            margin: 60px auto 0;
+            border: 8px solid white;
+            border-radius: 6px;
+            background-color: cornflowerblue;
+            box-shadow: 1px 2px 3px 0 rgba(0,0,0,.80);
+            background: transparent;
+        }
+        .title {
+            font-size: 18px;
+            margin: 0;
+            color: #5e6977;
+        }
+        .form {
+            width: 100%;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border: 2px solid #e1e8ee;
+            border-radius: 6px;
+            opacity: 0.7;
+        }
+    </style>
     <meta charset="UTF-8"/>
-    <title>Spring Security Example</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <title>login</title>
 </head>
 <body>
 <div th:if = "${param.error}">
@@ -14,10 +56,15 @@
 <div th:if = "${param.logout}">
     You have been logged out.
 </div>
-<form th:action = "@{/login}" method = "post">
-    <div><label>Username : <input type = "text" name = "username"/></label></div>
-    <div><label>Password:<input type = "password" name = "password"/></label></div>
-    <div><input type = "submit" value = "Sign In"/></div>
+<form class = "structure" th:action = "@{/login}" method = "post">
+    <div class = "form-header">
+        <h4 class = "title"> Login to Twitter </h4>
+    </div>
+    <div class = "form-body">
+    <div><label><input type = "text" class = "form" name = "username" placeholder="Username"/></label></div>
+    <div><label><input type = "password" class = "form" name = "password" placeholder="Password"/></label></div>
+    <div><input type = "submit" class = "btn btn-primary btn-lg" value = "Sign In"/></div>
+    </div>
 </form>
 </body>
 </html>

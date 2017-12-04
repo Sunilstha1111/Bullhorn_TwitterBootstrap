@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:fragment="headstuff">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Bootstrap 101 Template Integration</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body { padding-bottom: 100px; }
+        body {
+            background-image: url("https://cdn.betakit.com/wp-content/uploads/2013/11/yltA2KJke1IWGlONVsAdNujzbkF-1.jpeg");
+            no-repeat: width 100%; height: 100vh;
+            background-color: #337ab7;
+            margin:0;
+            padding:0;
+            background-attachment: fixed;
+            opacity :1;
+        }
+        .navbar {
+            margin-bottom: 0;
+            background-color:white;
+            z-index: 9999;
+            border: 0;
+            font-size: 18px !important;
+            line-height: 2 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family:Arial;
+            opacity:0.8;
+        }
+        .navbar li a, .navbar .navbar-brand {
+            color: Blue !important;
+        }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #f4511e !important;
+            background-color: white !important;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar" th:fragment="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>>
+            </button>
+        </div>
+
+        <div  class="collapse navbar-collapse"
+              id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/list">Login</a></li>
+            </ul>
+            <!--<ul class="nav navbar-nav navbar-right">
+                <li><a href="/login">Login</a></li>
+            </ul>-->
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<nav class="navbar navbar-default navbar-fixed-bottom"
+     th:fragment="footer">
+<div class="container">
+    <ul class="nav navbar-nav">
+        <li><p>Copyright 2017 - Sunil Shrestha</p></li>
+    </ul> </div>
+</nav>
+<th:block th:fragment="jslinks">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</th:block>
+</body>
+</html>
+

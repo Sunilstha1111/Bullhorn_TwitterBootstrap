@@ -2,32 +2,99 @@
 <html lang="en" xmlns:th = "www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <style>
+        body { padding-bottom: 50px; }
+
+        body {
+            background: url("https://michaelraunhome.files.wordpress.com/2015/04/abstract-white-background.jpg");
+        }
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: antiquewhite;
+            color: white;
+        }
+
+        input[type=text]:focus {
+            background-color: lightblue;
+        }
+
+        .form-header {
+            height: 60px;
+            padding: 20px 30px 0;
+            border-bottom: 1px solid #e1e8ee;
+        }
+        .form-body {
+            height: 340px;
+            padding: 25px 25px 20px;
+        }
+        .structure {
+            width: 360px;
+            height: 400px;
+            margin: 60px auto 0;
+            border: 6px whitesmoke;
+            border-radius: 6px;
+            box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.2);
+            opacity: 1;
+            background-color: white;
+        }
+        .title {
+            font-size: 14px;
+            margin: 0;
+            color: #5e6977;
+
+        }
+        .form {
+            width: 100%;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            border: 2px solid #e1e8ee;
+            border-radius: 6px;
+            opacity: 0.4;
+        }
+        h2{
+            font-family: Arial;
+            font-size: 30px;
+        }
+    </style>
     <title>Message Form</title>
 </head>
 <body>
 
-<form action = "#"
+<form class = "structure" action = "#"
       th:action = "@{/process}"
       th:object = "${message}"
       method = "post">
+    <div class = "form-header">
+        <h2 class = "title"><Bold>Happy Tweeting!! </Bold></h2>
+
     <input type = "hidden" th:field = "*{id}" />
 
-    Message: <textarea rows = "4" th:field = "*{message}" />
+    <div class = "form-body">
+    <textarea rows = "4" th:field = "*{message}" placeholder="Tweet" />
     <span th:if = "${#fields.hasErrors('message')}"
           th:errors = "*{message}"></span><br />
 
-    Sender: <input type = "text" th:field = "*{sender}" />
+    <input type = "text" th:field = "*{sender}" placeholder="Sender" />
     <span th:if = "${#fields.hasErrors ('sender')}"
           th:errors = "*{sender}"></span><br/>
 
-    Posted Date: <input type = "text" th:field = "*{postedDate}" />
+    <input type = "text" th:field = "*{postedDate}" placeholder="Posted Date"/>
     <span th:if = "${#fields.hasErrors('postedDate')}"
           th:errors = "*{postedDate}"></span><br />
 
     <br/>
 
-    <input type = "submit" value = "Post" />
-
+    <input type = "submit" class = "btn btn-primary btn-lg " value = "Post" />
+    </div>
+    </div>
 
 </form>
 
